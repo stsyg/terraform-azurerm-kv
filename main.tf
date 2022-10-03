@@ -8,7 +8,7 @@ resource "random_id" "kvname" {
 # Access the configuration of the AzureRM provider
 data "azurerm_client_config" "current" {}
 
-
+# Create Resource Group for KeyVault
 resource "azurerm_resource_group" "this" {
   name     = "${var.prefix}-${var.service}-rg"
   location = var.location
@@ -16,6 +16,7 @@ resource "azurerm_resource_group" "this" {
   tags = var.default_tags
 }
 
+# Create KeyVault and assign access policy
 resource "azurerm_key_vault" "this" {
   name                            = random_id.kvname.hex
   location                        = azurerm_resource_group.this.location
