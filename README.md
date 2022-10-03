@@ -1,2 +1,5 @@
-# terraform-azurerm-kv
-Deploying Azure KeyVault
+# Deployment of Azure KeyVault
+
+The following resources will be created:
+
+- Azure KeyVault
